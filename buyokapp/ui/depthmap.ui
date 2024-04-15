@@ -55,11 +55,29 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menumain_map">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <addaction name="actionmain"/>
+    <addaction name="actiondepth_map"/>
+   </widget>
+   <addaction name="menumain_map"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionmain">
+   <property name="text">
+    <string>main </string>
+   </property>
+  </action>
+  <action name="actiondepth_map">
+   <property name="text">
+    <string>depth map</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

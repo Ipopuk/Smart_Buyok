@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
-    <height>600</height>
+    <width>765</width>
+    <height>569</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -212,6 +212,34 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>765</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menudepth_map">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <addaction name="actiondepth_map"/>
+    <addaction name="actiondepth_map_2"/>
+   </widget>
+   <addaction name="menudepth_map"/>
+  </widget>
+  <action name="actiondepth_map">
+   <property name="text">
+    <string>main</string>
+   </property>
+  </action>
+  <action name="actiondepth_map_2">
+   <property name="text">
+    <string>depth map</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
