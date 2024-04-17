@@ -1,49 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Controller</class>
+ <widget class="QMainWindow" name="Controller">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>595</height>
+    <width>550</width>
+    <height>405</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="2" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="grid_label">
         <property name="text">
-         <string>TextLabel</string>
+         <string>СЕТКА</string>
         </property>
        </widget>
       </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="grid_line_edit"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="pushButton_grid_up">
+            <property name="text">
+             <string>▲ </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_grid_down">
+            <property name="text">
+             <string>▼ </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item row="2" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="motor_label">
+        <property name="text">
+         <string>МОТОР</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QPushButton" name="pushButton_motor_on">
+          <property name="text">
+           <string>ON</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="pushButton_motor_off">
           <property name="text">
-           <string>PushButton</string>
+           <string>OFF</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
+     </layout>
+    </item>
+    <item row="3" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_6">
       <item>
-       <widget class="QTableWidget" name="tableWidget"/>
+       <widget class="QLabel" name="turn_label">
+        <property name="text">
+         <string>ПОВОРОТ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLineEdit" name="turn_lineEdit"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QPushButton" name="pushButton_turn_up">
+            <property name="text">
+             <string>▲</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_turn_down">
+            <property name="text">
+             <string>▼ </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <item>
+       <widget class="QLabel" name="angle_label">
+        <property name="text">
+         <string>УГОЛ ОТКЛОНЕНИЯ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="angle_pic">
+        <property name="text">
+         <string>картынка</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -54,12 +141,36 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>18</height>
+     <width>550</width>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <addaction name="navigation_map"/>
+    <addaction name="depth_map"/>
+    <addaction name="controller"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="navigation_map">
+   <property name="text">
+    <string>navigation</string>
+   </property>
+  </action>
+  <action name="depth_map">
+   <property name="text">
+    <string>depth map</string>
+   </property>
+  </action>
+  <action name="controller">
+   <property name="text">
+    <string>controller</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
