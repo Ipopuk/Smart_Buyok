@@ -16,19 +16,27 @@ class MyAppDepthMap(QMainWindow, depthmap_design.Ui_MainWindow):
             super().__init__()
         self.setupUi(self)
         self.show_table()
-        self.actionmain.triggered.connect(self.show_navigationmap)
-        self.actiondepth_map.triggered.connect(self.show_depthmap)
+        self.navigation_map.triggered.connect(self.show_navigationmap)
+        self.depth_map.triggered.connect(self.show_depthmap)
+        self.controller.triggered.connect(self.show_controller)
+
 
     def show_navigationmap(self):
         from buyokapp.navigation import MyApp
-        window_depthmap = MyApp(self)
+        window_navigationmap = MyApp(self)
         self.hide()
-        window_depthmap.show()
+        window_navigationmap.show()
 
     def show_depthmap(self):
         window_depthmap = MyAppDepthMap(self)
         self.hide()
         window_depthmap.show()
+
+    def show_controller(self):
+        from buyokapp.controller import MyAppController
+        window_controller = MyAppController(self)
+        self.hide()
+        window_controller.show()
 
 
     def search_metric(self):

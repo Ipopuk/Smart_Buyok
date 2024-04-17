@@ -14,20 +14,26 @@ class MyAppController(QMainWindow, controller_design.Ui_Controller):
         else:
             super().__init__()
         self.setupUi(self)
-        # self.navigation_map.triggered.connect(self.show_navigationmap)
-        # self.depth_map.triggered.connect(self.show_depthmap)
+        self.navigation_map.triggered.connect(self.show_navigationmap)
+        self.depth_map.triggered.connect(self.show_depthmap)
+        self.controller.triggered.connect(self.show_controller)
 
-    # def show_navigationmap(self):
-    #     from buyokapp.navigation import MyApp
-    #     window_depthmap = MyApp(self)
-    #     self.hide()
-    #     window_depthmap.show()
-    #
-    # def show_depthmap(self):
-    #     window_depthmap = MyAppDepthMap(self)
-    #     self.hide()
-    #     window_depthmap.show()
+    def show_controller(self):
+        window_controller = MyAppController(self)
+        self.hide()
+        window_controller.show()
 
+    def show_depthmap(self):
+        from buyokapp.depthmap import MyAppDepthMap
+        window_depthmap = MyAppDepthMap(self)
+        self.hide()
+        window_depthmap.show()
+
+    def show_navigationmap(self):
+        from buyokapp.navigation import MyApp
+        window_navigationmap = MyApp(self)
+        self.hide()
+        window_navigationmap.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

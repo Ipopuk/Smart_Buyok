@@ -21,6 +21,7 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
         self.pushButton_search_table.clicked.connect(self.search_metric)
         self.navigation_map.triggered.connect(self.show_navigation)
         self.depth_map.triggered.connect(self.show_depthmap)
+        self.controller.triggered.connect(self.show_controller)
         self.lineEdit_scale.setText("17")
 
     def show_navigation(self):
@@ -33,6 +34,13 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
         window_depthmap = MyAppDepthMap(self)
         self.hide()
         window_depthmap.show()
+
+    def show_controller(self):
+        from buyokapp.controller import MyAppController
+        window_controller = MyAppController(self)
+        self.hide()
+        window_controller.show()
+
 
     def show_map(self):
         ll = f'{self.lineEdit_long.text()},{self.lineEdit_latt.text()}'
