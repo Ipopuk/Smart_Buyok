@@ -18,10 +18,10 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
         self.setupUi(self)
         self.show_table()
         self.pushButton_search.clicked.connect(self.show_map)
-        # self.pushButton.clicked.connect(self.search_metric)
-        self.actiondepth_map.triggered.connect(self.show_navigation)
-        self.actiondepth_map_2.triggered.connect(self.show_depthmap)
-        self.lineEdit_scale.setText("15")
+        self.pushButton_search_table.clicked.connect(self.search_metric)
+        self.navigation_map.triggered.connect(self.show_navigation)
+        self.depth_map.triggered.connect(self.show_depthmap)
+        self.lineEdit_scale.setText("17")
 
     def show_navigation(self):
         window_navigation = MyApp(self)
@@ -57,17 +57,17 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
         self.label_map.setPixmap(pixmap)
 
     def search_metric(self):
-        self.tableWidget.itemChanged.disconnect()
-        input_year = self.lineEdit_search.text()
-        self.show_table(input_year)
+        # self.tableWidget.itemChanged.disconnect()
+        id = self.lineEdit.text()
+        self.show_table(id)
 
-    def show_table(self, update=False):  # filter=None
+    def show_table(self, filter=None, update=False):  # filter=None
         engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
         connect = engine.connect()
-        # if filter:  # новое название, изменить везде
-        #     all_rows = connect.execute(f'SELECT * FROM metrics where year = {filter}').all()
-        # else:
-        all_rows = connect.execute(text('SELECT * FROM metrics')).all()
+        if filter:  # новое название, изменить везде
+            all_rows = connect.execute(text(f'SELECT * FROM metrics where id = {filter}')).all()
+        else:
+            all_rows = connect.execute(text('SELECT * FROM metrics')).all()
         self.tableWidget.setRowCount(len(all_rows))
         self.tableWidget.setColumnCount(4)
         for i, row in enumerate(all_rows):
