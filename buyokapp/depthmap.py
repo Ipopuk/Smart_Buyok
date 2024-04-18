@@ -54,6 +54,7 @@ class MyAppDepthMap(QMainWindow, depthmap_design.Ui_MainWindow):
         self.tableWidget_2.setRowCount(len(all_rows))
         self.tableWidget_2.setColumnCount(3)
         self.tableWidget_2.setHorizontalHeaderLabels(['id', 'll', 'depth'])
+
         for i, row in enumerate(all_rows):
             id_ = QTableWidgetItem(str(row[0]))
             id_.setFlags(QtCore.Qt.ItemIsEnabled)

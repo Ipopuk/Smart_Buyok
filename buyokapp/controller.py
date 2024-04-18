@@ -17,6 +17,33 @@ class MyAppController(QMainWindow, controller_design.Ui_Controller):
         self.navigation_map.triggered.connect(self.show_navigationmap)
         self.depth_map.triggered.connect(self.show_depthmap)
         self.controller.triggered.connect(self.show_controller)
+        self.pushButton_grid_up.clicked.connect(self.grid_up)
+        self.pushButton_grid_down.clicked.connect(self.grid_down)
+        self.pushButton_turn_up.clicked.connect(self.turn_up)
+        self.pushButton_turn_down.clicked.connect(self.turn_down)
+    def grid_up(self):
+        x = int(self.grid_line_edit.text()[:-1])
+        if x < 100:
+            self.grid_line_edit.setText(str(x+20) + '%')
+        else:
+            self.grid_line_edit.setText(str(x) + '%')
+
+
+    def grid_down(self):
+        x = int(self.grid_line_edit.text()[:-1])
+        if x > 0:
+            self.grid_line_edit.setText(str(x-20) + '%')
+        else:
+            self.grid_line_edit.setText(str(x) + '%')
+
+    def turn_up(self):
+        x = int(self.turn_line_edit.text()[:-1])
+        self.turn_line_edit.setText(str(x + 45)+'°')
+
+    def turn_down(self):
+        x = int(self.turn_line_edit.text()[:-1])
+        self.turn_line_edit.setText(str(x - 45) +'°')
+
 
     def show_controller(self):
         window_controller = MyAppController(self)
