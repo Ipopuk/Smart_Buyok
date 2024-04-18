@@ -70,6 +70,7 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
         self.show_table(id)
 
     def show_table(self, filter=None, update=False):  # filter=None
+
         engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
         connect = engine.connect()
         if filter:  # новое название, изменить везде
@@ -78,6 +79,7 @@ class MyApp(QMainWindow, navigation_design.Ui_MainWindow):
             all_rows = connect.execute(text('SELECT * FROM metrics')).all()
         self.tableWidget.setRowCount(len(all_rows))
         self.tableWidget.setColumnCount(4)
+        self.tableWidget.setHorizontalHeaderLabels(['id', 'time', 'll', 'depth'])
         for i, row in enumerate(all_rows):
             id_ = QTableWidgetItem(str(row[0]))
             id_.setFlags(QtCore.Qt.ItemIsEnabled)
