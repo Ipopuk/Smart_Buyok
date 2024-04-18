@@ -54,3 +54,5 @@ class Canvas(FigureCanvas):
         x_3 = third_part[0]
         y_3 = third_part[1]
         self.ax.scatter(x_3, y_3, c='#C0DAFF')
+        self.ax.set(xlabel='Долгота', ylabel='Широта')
+

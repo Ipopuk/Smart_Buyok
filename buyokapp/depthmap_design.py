@@ -21,12 +21,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setFixedSize(565, 565)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
-
         self.chart = Canvas(self.tableWidget)
-        self.chart.setGeometry(QtCore.QRect(10, 10, 700, 500))
+        self.chart.setGeometry(QtCore.QRect(10, 70, 600, 370))
 
         self.horizontalLayout.addWidget(self.tableWidget)
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -44,6 +44,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(0)
         self.tableWidget_2.setRowCount(0)
+
         self.verticalLayout.addWidget(self.tableWidget_2)
         self.horizontalLayout.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
